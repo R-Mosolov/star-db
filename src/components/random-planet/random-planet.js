@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import SwapiService from '../../services/swapi-service';
 
 import './random-planet.css';
+import Spinner from '../spinner';
 
 export default class RandomPlanet extends Component {
 
@@ -34,6 +35,7 @@ export default class RandomPlanet extends Component {
 
         return (
             <nav className="random-planet">
+                <Spinner/>
                 <div className="card">
                     <div className="d-flex">
                         <div>
