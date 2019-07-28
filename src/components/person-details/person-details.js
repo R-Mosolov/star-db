@@ -4,7 +4,7 @@ import './person-details.css';
 
 const PersonDetails = () => {
     return (
-        <nav className="person-details mt-3">
+        <nav className="person-details mt-3 ml-3">
             <div className="card">
                 <div className="d-flex">
                     <div>

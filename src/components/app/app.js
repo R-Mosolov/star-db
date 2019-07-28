@@ -8,11 +8,13 @@ import PersonDetails from '../person-details';
 
 const App = () => {
     return (
-        <div>
+        <div className="container">
             <Header/>
             <RandomPlanet/>
-            <ItemList/>
-            <PersonDetails/>
+            <div className="d-flex">
+                <ItemList/>
+                <PersonDetails/>
+            </div>
         </div>
     );
 };
