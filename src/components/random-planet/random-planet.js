@@ -18,16 +18,10 @@ export default class RandomPlanet extends Component {
     constructor() {
         super();
         this.updatePlanet();
-        setInterval(this.updatePlanet, 2500);
-        console.log('constructor()');
-    }
-
-    componentDidMount() {
-        console.log('componentDidMount()');
+        setInterval(this.updatePlanet, 5000);
     }
 
     onPlanetLoaded = (planet) => {
-        console.log('update');
         this.setState({
             planet,
             loading: false,
@@ -48,7 +42,6 @@ export default class RandomPlanet extends Component {
     };
 
     render() {
-        console.log('render()');
         const { planet, loading, error } = this.state;
 
         const hasData = !(loading || error);
@@ -66,9 +59,6 @@ export default class RandomPlanet extends Component {
                         {content}
                     </div>
                 </div>
-                <button
-                    className="btn btn-warning"
-                    onClick={this.updatePlanet}>Toggle Random Planet</button>
             </nav>
         )
     }
@@ -87,18 +77,18 @@ const PlanetView = ({ planet }) => {
             </div>
             <div className="d-flex align-items-center">
                 <div>
-                    <h2>{name}</h2>
+                    <h3>{name}</h3>
                     <table className="table">
                         <tr className="d-flex">
-                            <th className="w-100">Population</th>
+                            <th>Population</th>
                             <td>{population}</td>
                         </tr>
                         <tr className="d-flex">
-                            <th className="w-100">Rotation Period</th>
+                            <th>Rotation Period</th>
                             <td>{rotationPeriod}</td>
                         </tr>
                         <tr className="d-flex">
-                            <th className="w-100">Diameter</th>
+                            <th>Diameter</th>
                             <td>{diameter}</td>
                         </tr>
                     </table>

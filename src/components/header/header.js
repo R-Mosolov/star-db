@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <nav className="header d-flex justify-content-between">
             <div>
-                <h1 className="ml-3">Star DB</h1>
+                <h1>Star DB</h1>
             </div>
             <div className="d-flex align-items-center">
                 <a href="#">People</a>

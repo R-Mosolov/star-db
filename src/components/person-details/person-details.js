@@ -4,7 +4,7 @@ import './person-details.css';
 
 const PersonDetails = () => {
     return (
-        <nav className="person-details mt-3 ml-3">
+        <nav className="person-details ml-lg-3 mt-3 w-100">
             <div className="card">
                 <div className="d-flex">
                     <div>
@@ -14,7 +14,7 @@ const PersonDetails = () => {
                     </div>
                     <div className="d-flex align-items-center">
                         <div>
-                            <h2>R2-D2</h2>
+                            <h3>R2-D2</h3>
                             <table className="table">
                                 <tr className="d-flex">
                                     <th className="w-100">Gender</th>

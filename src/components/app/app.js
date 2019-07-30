@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import '../../services/swapi-service';
 import Header from '../header';
@@ -6,17 +6,30 @@ import RandomPlanet from '../random-planet';
 import ItemList from '../item-list';
 import PersonDetails from '../person-details';
 
-const App = () => {
-    return (
-        <div className="container">
-            <Header/>
-            <RandomPlanet/>
-            <div className="d-flex">
-                <ItemList/>
-                <PersonDetails/>
-            </div>
-        </div>
-    );
-};
+export default class App extends Component {
 
-export default App;
+    state = {
+        selectedPerson: null
+    };
+
+    onPersonSelected = (id) => {
+        this.setState({
+            selectedPerson: id
+        });
+    };
+
+    render() {
+        return (
+            <div className="container">
+                <Header/>
+                <h2 className="mt-3">Random Planet</h2>
+                <RandomPlanet/>
+                <h2 className="mt-3">Select Person</h2>
+                <div className="d-lg-flex mb-3">
+                    <ItemList onItemSelected={this.onPersonSelected}/>
+                    <PersonDetails personIdSelected={this.state.selectedPerson}/>
+                </div>
+            </div>
+        );
+    }
+};
