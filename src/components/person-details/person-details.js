@@ -1,40 +1,82 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './person-details.css';
+import SwapiService from "../../services/swapi-service";
 
-const PersonDetails = () => {
-    return (
-        <nav className="person-details ml-lg-3 mt-3 w-100">
-            <div className="card">
-                <div className="d-flex">
-                    <div>
-                        <img className="card-img m-3 rounded-lg"
-                             alt="Planet Image"
-                             src="https://images-na.ssl-images-amazon.com/images/I/712Lwo7hMoL._SX425_.jpg"/>
-                    </div>
-                    <div className="d-flex align-items-center">
+export default class PersonDetails extends Component {
+
+    swapiService = new SwapiService();
+
+    state = {
+        person: null,
+        loading: false
+    };
+
+    componentDidMount() {
+        this.updatePerson();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.personId !== prevProps.personId) {
+            this.updatePerson();
+        }
+    }
+
+    updatePerson() {
+        const { personId } = this.props;
+        if (!personId) {
+            return;
+        }
+
+        this.swapiService
+            .getPerson(personId)
+            .then((person) => {
+                this.setState({
+                    person
+                });
+            });
+    }
+
+    render() {
+
+        if (!this.state.person) {
+            return <p className="mt-3">Select a person from a list</p>;
+        }
+
+        const { id, name, gender,
+                birthYear, eyeColor } = this.state.person;
+
+        return (
+            <nav className="person-details ml-lg-3 mt-3 w-100">
+                <div className="card">
+                    <div className="d-flex">
                         <div>
-                            <h3>R2-D2</h3>
-                            <table className="table">
-                                <tr className="d-flex">
-                                    <th className="w-100">Gender</th>
-                                    <td>123124</td>
-                                </tr>
-                                <tr className="d-flex">
-                                    <th className="w-100">Birth Year</th>
-                                    <td>43</td>
-                                </tr>
-                                <tr className="d-flex">
-                                    <th className="w-100">Eye Color</th>
-                                    <td>red</td>
-                                </tr>
-                            </table>
+                            <img className="card-img m-3 rounded-lg"
+                                 alt="Planet Image"
+                                 src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}/>
+                        </div>
+                        <div className="d-flex align-items-center">
+                            <div>
+                                <h3>{name}</h3>
+                                <table className="table">
+                                    <tr className="d-flex">
+                                        <th className="w-100">Gender</th>
+                                        <td>{gender}</td>
+                                    </tr>
+                                    <tr className="d-flex">
+                                        <th className="w-100">Birth Year</th>
+                                        <td>{birthYear}</td>
+                                    </tr>
+                                    <tr className="d-flex">
+                                        <th className="w-100">Eye Color</th>
+                                        <td>{eyeColor}</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    )
+            </nav>
+        )
+    }
 };
-
-export default PersonDetails;
