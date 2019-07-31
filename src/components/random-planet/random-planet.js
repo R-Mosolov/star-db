@@ -15,10 +15,13 @@ export default class RandomPlanet extends Component {
         loading: true
     };
 
-    constructor() {
-        super();
+    componentDidMount() {
         this.updatePlanet();
-        setInterval(this.updatePlanet, 5000);
+        this.interval = setInterval(this.updatePlanet, 5000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     onPlanetLoaded = (planet) => {
@@ -72,26 +75,26 @@ const PlanetView = ({ planet }) => {
         <Fragment>
             <div>
                 <img className="card-img m-3 rounded-lg"
-                     alt="Planet Image"
+                     alt="Planet from Star Wars"
                      src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}/>
             </div>
             <div className="d-flex align-items-center">
                 <div>
                     <h3>{name}</h3>
-                    <table className="table">
-                        <tr className="d-flex">
-                            <th>Population</th>
-                            <td>{population}</td>
-                        </tr>
-                        <tr className="d-flex">
-                            <th>Rotation Period</th>
-                            <td>{rotationPeriod}</td>
-                        </tr>
-                        <tr className="d-flex">
-                            <th>Diameter</th>
-                            <td>{diameter}</td>
-                        </tr>
-                    </table>
+                    <ul className="list-group">
+                        <li className="list-group-item">
+                            <span className="mr-2">Population:</span>
+                            <span>{population}</span>
+                        </li>
+                        <li className="list-group-item">
+                            <span className="mr-2">Rotation Period:</span>
+                            <span>{rotationPeriod}</span>
+                        </li>
+                        <li className="list-group-item">
+                            <span className="mr-2">Diameter:</span>
+                            <span>{diameter}</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </Fragment>

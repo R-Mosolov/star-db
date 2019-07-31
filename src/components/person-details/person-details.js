@@ -52,26 +52,26 @@ export default class PersonDetails extends Component {
                     <div className="d-flex">
                         <div>
                             <img className="card-img m-3 rounded-lg"
-                                 alt="Planet Image"
+                                 alt="Person from Star Wars"
                                  src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}/>
                         </div>
                         <div className="d-flex align-items-center">
                             <div>
                                 <h3>{name}</h3>
-                                <table className="table">
-                                    <tr className="d-flex">
-                                        <th className="w-100">Gender</th>
-                                        <td>{gender}</td>
-                                    </tr>
-                                    <tr className="d-flex">
-                                        <th className="w-100">Birth Year</th>
-                                        <td>{birthYear}</td>
-                                    </tr>
-                                    <tr className="d-flex">
-                                        <th className="w-100">Eye Color</th>
-                                        <td>{eyeColor}</td>
-                                    </tr>
-                                </table>
+                                <ul className="list-group">
+                                    <li className="list-group-item">
+                                        <span className="mr-2">Gender:</span>
+                                        <span>{gender}</span>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <span className="mr-2">Birth Year:</span>
+                                        <span>{birthYear}</span>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <span className="mr-2">Eye Color:</span>
+                                        <span>{eyeColor}</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
