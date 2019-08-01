@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 
-import './item-list.css';
+import './item-list-planet.css';
 import SwapiService from "../../services/swapi-service";
 import Spinner from "../spinner";
 
-export default class ItemList extends Component {
+export default class ItemListPlanet extends Component {
 
     swapiService = new SwapiService();
 
     state = {
-        personList: null
+        planetList: null
     };
 
     componentDidMount() {
         this.swapiService
-            .getAllPerson()
-            .then((personList) => {
+            .getAllPlanets()
+            .then((planetList) => {
                 this.setState({
-                    personList
+                    planetList
                 });
             });
     }
@@ -36,13 +36,13 @@ export default class ItemList extends Component {
 
     render() {
 
-        const { personList } = this.state;
+        const { planetList } = this.state;
 
-        if (!personList) {
+        if (!planetList) {
             return <Spinner/>;
         }
 
-        const items = this.renderItems(personList);
+        const items = this.renderItems(planetList);
 
         return (
             <div className="item-list mt-3 w-100">

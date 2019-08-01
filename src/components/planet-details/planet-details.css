@@ -1,0 +1,10 @@
+.planet-details {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1024px;
+}
+
+.planet-details img {
+    height: 200px;
+    width: auto;
+}

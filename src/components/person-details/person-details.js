@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './person-details.css';
 import SwapiService from "../../services/swapi-service";
+import ErrorButton from "../error-button";
+import ErrorIndicator from "../error-indicator";
 
 export default class PersonDetails extends Component {
 
@@ -9,7 +11,8 @@ export default class PersonDetails extends Component {
 
     state = {
         person: null,
-        loading: false
+        loading: false,
+        hasError: false
     };
 
     componentDidMount() {
@@ -20,6 +23,13 @@ export default class PersonDetails extends Component {
         if (this.props.personId !== prevProps.personId) {
             this.updatePerson();
         }
+    }
+
+    componentDidCatch(error, errorInfo) {
+        console.log('componentDidCatch()');
+        this.setState({
+            hasError: true
+        });
     }
 
     updatePerson() {
@@ -41,6 +51,10 @@ export default class PersonDetails extends Component {
 
         if (!this.state.person) {
             return <p className="mt-3">Select a person from a list</p>;
+        }
+
+        if (this.state.hasError) {
+            return <ErrorIndicator/>;
         }
 
         const { id, name, gender,
@@ -74,6 +88,9 @@ export default class PersonDetails extends Component {
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                    <div className="d-flex justify-content-center mb-4">
+                        <ErrorButton/>
                     </div>
                 </div>
             </nav>

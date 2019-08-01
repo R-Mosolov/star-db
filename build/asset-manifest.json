@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2846ad59.chunk.css",
+    "main.js": "/static/js/main.a8e1dff2.chunk.js",
+    "main.js.map": "/static/js/main.a8e1dff2.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.c52ae976.chunk.js": "/static/js/2.c52ae976.chunk.js",
+    "static/js/2.c52ae976.chunk.js.map": "/static/js/2.c52ae976.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.440b3e6bfba67f6884f0c26d5bace5de.js": "/precache-manifest.440b3e6bfba67f6884f0c26d5bace5de.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.2846ad59.chunk.css.map": "/static/css/main.2846ad59.chunk.css.map",
+    "static/media/death-star.svg": "/static/media/death-star.28fc51ff.svg"
+  }
+}
