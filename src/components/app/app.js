@@ -5,12 +5,14 @@ import '../../services/swapi-service';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ItemList from '../item-list';
-import ItemListPlanet from '../item-list-planet';
 import PersonDetails from '../person-details';
 import PlanetDetails from '../planet-details';
 import ErrorIndicator from "../error-indicator";
+import SwapiService from "../../services/swapi-service";
 
 export default class App extends Component {
+
+    swapiService = new SwapiService();
 
     state = {
         selectedPerson: 5,
@@ -52,13 +54,17 @@ export default class App extends Component {
 
                 <h2 className="mt-3">Select a Person</h2>
                 <div className="d-lg-flex mb-3">
-                    <ItemList onItemSelected={this.onPersonSelected}/>
+                    <ItemList
+                        onItemSelected={this.onPersonSelected}
+                        getData={this.swapiService.getAllPerson}/>
                     <PersonDetails personId={this.state.selectedPerson}/>
                 </div>
 
                 <h2 className="mt-3">Select a Planet</h2>
                 <div className="d-lg-flex mb-3">
-                    <ItemListPlanet onItemSelected={this.onPlanetSelected}/>
+                    <ItemList
+                        onItemSelected={this.onPlanetSelected}
+                        getData={this.swapiService.getAllPlanets}/>
                     <PlanetDetails planetId={this.state.selectedPlanet}/>
                 </div>
             </div>
