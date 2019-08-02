@@ -1,4 +1,11 @@
-.item-list li:hover {
-    cursor: pointer;
-    background: gray;
+.item-list {
+  margin-bottom: 1rem;
+}
+
+.item-list .list-group-item {
+  cursor: pointer;
+}
+
+.item-list .list-group-item:hover {
+  background-color: #444;
 }

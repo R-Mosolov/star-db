@@ -1,1 +1,20 @@
-This single page application was created in style of "Star Wars".
+MOUNTING
+------
+constructor() => render() => componentDidMount()
+
+
+UPDATES
+------
+New Props
+              => render() => componentDidUpdate(
+setState()                      prevProps, prevState)
+
+
+UNMOUNTING
+------
+componentWillUnmount()
+
+
+ERROR
+------
+componentDidCatch()
